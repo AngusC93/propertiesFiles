@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="maven-antrun-" default="main">
+  <target name="main">
+    <loadproperties>
+      <file file="src\main\resources\application.properties" />
+    </loadproperties>
+    <loadproperties>
+      <file file="src\main\resources\another.properties" />
+    </loadproperties>
+    <copy todir="target/resources">
+      <fileset includes="**/*.properties" dir="src\main\resources" />
+    </copy>
+  </target>
+</project>
