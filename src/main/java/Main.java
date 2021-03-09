@@ -11,7 +11,7 @@ public class Main {
             String propertiesFileName = "application.properties";
 
 //            InputStream inputStream = Main.class.getClassLoader().getResourceAsStream(propertiesFileName);
-            InputStreamReader in = new InputStreamReader(new FileInputStream("target/resources/application.properties"),
+            InputStreamReader in = new InputStreamReader(new FileInputStream("resources/application.properties"),
                     StandardCharsets.UTF_8);
             props.load(in);
 //            String simProps = "another.properties";
