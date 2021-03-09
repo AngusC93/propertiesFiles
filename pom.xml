@@ -19,6 +19,12 @@
         </dependency>
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <version>3.3.0</version>
+            <type>maven-plugin</type>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-antrun-plugin</artifactId>
             <version>3.0.0</version>
             <type>maven-plugin</type>
@@ -31,6 +37,7 @@
                 <filtering>true</filtering>
                 <excludes>
                     <exclude>**/*.properties</exclude>
+                    <exclude>**/*.yaml</exclude>
                 </excludes>
             </resource>
                 <resource>
@@ -38,6 +45,28 @@
                 </resource>
             </resources>
         <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>Main</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
@@ -68,8 +97,8 @@
                                     <file file="src\main\resources\another.properties"/>
                                 </loadproperties>
                                 <copy todir="target/resources">
-                                    <fileset dir="src\main\resources"
-                                             includes="**/*.properties"/>
+                                    <fileset dir="src\main\resources" includes="**/*.properties"/>
+                                    <fileset dir="src\main\resources" includes="**/*.yaml"/>
                                 </copy>
                             </target>
                         </configuration>

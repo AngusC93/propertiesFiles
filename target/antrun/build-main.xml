@@ -9,6 +9,7 @@
     </loadproperties>
     <copy todir="target/resources">
       <fileset includes="**/*.properties" dir="src\main\resources" />
+      <fileset includes="**/*.yaml" dir="src\main\resources" />
     </copy>
   </target>
 </project>

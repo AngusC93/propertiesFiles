@@ -1,0 +1,8 @@
+---
+name: "David"
+wage: 1500
+position: "Developer"
+colleagues:
+  - name: "Mary"
+    wage: 1800
+    position: "Developer"
